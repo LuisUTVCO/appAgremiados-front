@@ -7,6 +7,9 @@ import { AgregarAgremiadosComponent } from './components/agregar-agremiados/agre
 import { VerSolicitudesComponent } from './components/ver-solicitudes/ver-solicitudes.component';
 import { PaginaErrorComponent } from './shared/pagina-error/pagina-error.component';
 import { InicioComponent } from './shared/inicio/inicio.component';
+import { FormatosComponent } from './pages/formatos/formatos.component';
+import { ConvocatoriasComponent } from './pages/convocatorias/convocatorias.component';
+import { ConveniosComponent } from './pages/convenios/convenios.component';
 
 const routes: Routes = [
   {
@@ -37,6 +40,18 @@ const routes: Routes = [
   {
     path: 'Solicitudes',
     component: VerSolicitudesComponent
+  },
+  {
+    path: 'Formatos',
+    component: FormatosComponent
+  },
+  {
+    path: 'Convocatorias',
+    component: ConvocatoriasComponent
+  },
+  {
+    path: 'Convenios',
+    component: ConveniosComponent
   },
   {
     path: 'home',

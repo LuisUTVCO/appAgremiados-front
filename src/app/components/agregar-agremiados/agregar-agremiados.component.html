@@ -1,3 +1,130 @@
-<p>
-  agregar-agremiados works!
-</p>
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-text>
+        <p align="center"><strong>Agregar Agremiado</strong></p>
+      </ion-text>
+      <ion-buttons slot="start">
+        <ion-button fill="clear">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid fixed><br>
+    <form>
+      <ion-row>
+        <ion-grid [fixed]="true">
+          <ion-row>
+            <ion-col>
+              <ion-label><strong>Primer Apellido:</strong></ion-label>
+              <ion-input formControlName="price" type="name" fill="outline"
+                placeholder="Ingresa tu primer apellido"></ion-input>
+              <small style="color: red;">
+                El apellido es obligatorio </small>
+            </ion-col>
+            <ion-col>
+              <ion-label><strong>Segundo Apellido:</strong></ion-label>
+              <ion-input formControlName="stock" type="name" fill="outline"
+                placeholder="Ingresa tu segundo apellido"></ion-input>
+              <small style="color: red;">
+                El apellido es obligatorio </small>
+            </ion-col>
+            <ion-col>
+              <ion-label><strong>Nombre(s):</strong></ion-label>
+              <ion-input formControlName="stock" type="name" fill="outline"
+                placeholder="Ingresa tus nombre(s)"></ion-input>
+              <small style="color: red;">
+                El nombre es obligatorio </small>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-label><strong>NUP:</strong></ion-label>
+          <ion-input formControlName="price" type="number" fill="outline" placeholder=" Precio"></ion-input>
+          <small style="color: red;">
+            El precio es obligatorio </small>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label><strong>NUE:</strong></ion-label>
+          <ion-input formControlName="stock" type="number" fill="outline" placeholder=" Stock"></ion-input>
+          <small style="color: red;">
+            El Stock es obligatorio </small>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-label><strong>RFC:</strong></ion-label>
+          <ion-input formControlName="price" type="number" fill="outline" placeholder=" Precio"></ion-input>
+          <small style="color: red;">
+            El precio es obligatorio </small>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label><strong>NSS:</strong></ion-label>
+          <ion-input formControlName="stock" type="number" fill="outline" placeholder=" Stock"></ion-input>
+          <small style="color: red;">
+            El Stock es obligatorio </small>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-label><strong>Fecha de nacimiento:</strong></ion-label>
+          <ion-input formControlName="expired" type="date" fill="outline" placeholder=" Vencimiento"></ion-input>
+          <small style="color: red;">
+            La fecha debe ser posterior </small>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label><strong>Teléfono:</strong></ion-label>
+          <ion-input formControlName="stock" type="number" fill="outline" placeholder=" Stock"></ion-input>
+          <small style="color: red;">
+            El Stock es obligatorio </small>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <strong>¿Cuota pagada?</strong>
+          <ion-select type="number" formControlName="category_id" placeholder="Selecciona una opción">
+            <ion-select-option>
+              Si
+            </ion-select-option>
+            <ion-select-option>
+              No
+            </ion-select-option>
+            <ion-select-option>
+              Pendiente
+            </ion-select-option>
+          </ion-select>
+          <small style="color: red;">
+            La fecha debe ser posterior </small>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-label><strong>Genéro:</strong></ion-label>
+          <ion-select type="number" formControlName="category_id" placeholder="Selecciona una gategoria">
+            <ion-select-option>
+              Hombre
+            </ion-select-option>
+            <ion-select-option>
+              Mujer
+            </ion-select-option>
+          </ion-select>
+          <small style="color: red;">
+            Elije una categoria es obligatorio </small>
+        </ion-col>
+      </ion-row><br>
+      <ion-button type="submit" expand="block" shape="round">
+        Guardar
+      </ion-button>
+
+    </form>
+  </ion-grid>
+
+</ion-content>

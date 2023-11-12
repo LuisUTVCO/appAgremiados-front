@@ -1,31 +1,21 @@
-<!-- <body>
-    <div class="card-container">
-        <div class="card">
-            <div class="card-body">
-                <img class="logo" src="assets/logo3.png">
-                <div class="mb-3">
-                    <p class="card-title fw-bold" align="center">LOGIN</p>
-                    <form [formGroup]="Formulario_login" (ngSubmit)="login()">
-                        <label for=" exampleFormControlInput1" class="form-label">Correo:</label>
-                        <input type="email" class="form-control" placeholder="name@example.com" id="email" name="email"
-                            formControlName="email">
-                        <label for="exampleFormControlInput1" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" id="password" name="password"
-                            formControlName="password">
-                        <br>
-                        <button class="boton-login btn" [disabled]="Formulario_login.invalid">Iniciar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</body> -->
-
-<body>
+<br><ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-button shape="round">Formatos</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button shape="round">Convocatorias</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button shape="round">Convenios</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  
   <div class="card-container">
     <form class="form_main">
       <img class="logo" src="assets/images/logo.png" style="height: 75px; width: 75px; border-radius: 40px;">
-      <p class="heading">Login</p>
+      <p class="heading">Iniciar Sesión</p>
       <div class="inputContainer">
         <svg viewBox="0 0 16 16" fill="#2e2e2e" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
           class="inputIcon">
@@ -53,4 +43,3 @@
     </form>
 
   </div>
-</body>
