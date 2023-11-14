@@ -41,18 +41,27 @@
         <ion-col style="background-color: #3498db;"><strong>Cuota</strong></ion-col>
         <ion-col style="background-color: #3498db;"><strong>Acciones</strong></ion-col>
     </ion-row>
-    <ion-row>
-        <ion-col>Martinez</ion-col>
-        <ion-col>Hernandez</ion-col>
-        <ion-col>Luis</ion-col>
-        <ion-col>4</ion-col>
-        <ion-col>5</ion-col>
-        <ion-col>6</ion-col>
-        <ion-col>7</ion-col>
-        <ion-col>8</ion-col>
-        <ion-col>11/11/2023</ion-col>
-        <ion-col>10</ion-col>
-        <ion-col>11</ion-col>
-        <ion-col>12</ion-col>
+    <ion-row *ngFor="let agre of agremiados">
+        <ion-col>{{agre.a_paterno}}</ion-col>
+        <ion-col>{{agre.a_materno}}</ion-col>
+        <ion-col>{{agre.nombre}}</ion-col>
+        <ion-col>{{agre.sexo}}</ion-col>
+        <ion-col>{{agre.NUP}}</ion-col>
+        <ion-col>{{agre.NUE}}</ion-col>
+        <ion-col>{{agre.RFC}}</ion-col>
+        <ion-col>{{agre.NSS}}</ion-col>
+        <ion-col>{{agre.fecha_nacimiento}}</ion-col>
+        <ion-col>{{agre.telefono}}</ion-col>
+        <ion-col>{{agre.cuota}}</ion-col>
+        <ion-col>
+            <ion-button href="home" shape="round" style="background-color: #04558a; border-radius: 25px">
+                &nbsp;<ion-icon name="edit"></ion-icon>
+                Editar
+            </ion-button>&nbsp;
+            <ion-button shape="round" style="background-color: rgb(138, 4, 4), 40, 4; border-radius: 25px">
+                &nbsp;<ion-icon name="drash"></ion-icon>
+                Eliminar
+            </ion-button>
+        </ion-col>
     </ion-row>
 </ion-grid>

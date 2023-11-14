@@ -22,6 +22,7 @@ import { PaginaErrorComponent } from './shared/pagina-error/pagina-error.compone
 import { FormatosComponent } from './pages/formatos/formatos.component';
 import { ConvocatoriasComponent } from './pages/convocatorias/convocatorias.component';
 import { ConveniosComponent } from './pages/convenios/convenios.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -44,9 +45,10 @@ import { ConveniosComponent } from './pages/convenios/convenios.component';
 
     // Carpeta Shared
     InicioComponent,
-    PaginaErrorComponent
+    PaginaErrorComponent,
+    
   ],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicModule, CommonModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicModule, CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
