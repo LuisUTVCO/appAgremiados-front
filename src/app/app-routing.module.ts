@@ -1,18 +1,32 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+// Componentes de Login y Register
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+
+// CRUD de agremiados
 import { VerAgremiadosComponent } from './components/ver-agremiados/ver-agremiados.component';
 import { AgregarAgremiadosComponent } from './components/agregar-agremiados/agregar-agremiados.component';
 import { VerSolicitudesComponent } from './components/ver-solicitudes/ver-solicitudes.component';
-import { PaginaErrorComponent } from './shared/pagina-error/pagina-error.component';
+
+// Pagina principal por usuario
 import { InicioComponent } from './shared/inicio/inicio.component';
+import { HomeComponent } from './pages/home/home.component';
+
+// Componentes externos
 import { FormatosComponent } from './pages/formatos/formatos.component';
 import { ConvocatoriasComponent } from './pages/convocatorias/convocatorias.component';
 import { ConveniosComponent } from './pages/convenios/convenios.component';
 
+// Pagina de error
+import { PaginaErrorComponent } from './shared/pagina-error/pagina-error.component';
+import { AuthGuardAdministrador } from './guards/auth-administrador.guard';
+import { AuthGuardAgremiado } from './guards/auth-agremiado.guard';
+
 const routes: Routes = [
   {
+    // Dirige en automático a Login al inicializar el proyecto
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
@@ -27,19 +41,19 @@ const routes: Routes = [
   },
   {
     path: 'verAgremiado',
-    component: VerAgremiadosComponent
+    component: VerAgremiadosComponent, canActivate: [AuthGuardAdministrador]
   },
   {
     path: 'agregarAgremiado',
-    component: AgregarAgremiadosComponent
+    component: AgregarAgremiadosComponent, canActivate: [AuthGuardAdministrador]
   },
   {
     path: 'verAgremiado',
-    component: VerAgremiadosComponent
+    component: VerAgremiadosComponent, canActivate: [AuthGuardAdministrador]
   },
   {
     path: 'Solicitudes',
-    component: VerSolicitudesComponent
+    component: VerSolicitudesComponent, canActivate: [AuthGuardAdministrador]
   },
   {
     path: 'Formatos',
@@ -54,14 +68,19 @@ const routes: Routes = [
     component: ConveniosComponent
   },
   {
+    path: 'homeAdmin',
+    component: InicioComponent, canActivate: [AuthGuardAdministrador]
+  },
+  {
     path: 'home',
-    component: InicioComponent
+    component: HomeComponent, canActivate: [AuthGuardAgremiado]
   },
   {
     path: 'page-error',
     component: PaginaErrorComponent
   },
   {
+    // Redirige en caso de que la url no existe
     path: '**',
     redirectTo: '/page-error'
   }

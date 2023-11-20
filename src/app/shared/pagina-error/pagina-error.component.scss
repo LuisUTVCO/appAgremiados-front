@@ -453,7 +453,7 @@ button {
 .e-nav__link:before {
     content: "";
     height: 200px;
-    background: #212121;
+    background: #545353;
     position: absolute;
     top: 70px;
     right: 70px;
@@ -472,7 +472,7 @@ button {
 }
 
 .e-nav__link:after {
-    content: "Volver a Inicio";
+    content: "Volver a Login";
 }
 
 .e-nav__link:hover:before {
