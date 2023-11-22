@@ -17,7 +17,6 @@ export class LoginService {
     return this.http.post(this.apiUrl + 'login', data);
   }
 
-
   //Guardar token en localStorage
   saveToken(token: string) {
     localStorage.setItem('token', token);
@@ -26,6 +25,6 @@ export class LoginService {
   //Guardar datos del usuario en localStorage
   saveUser(NUE: any) {
     localStorage.setItem('user', JSON.stringify(NUE));
-
   }
+  
 }

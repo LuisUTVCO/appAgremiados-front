@@ -48,6 +48,7 @@ export class LoginComponent {
           this.authS.setLoggedInFlag(true);
 
           if (user.id_rol === 1) {
+            console.log('¡Inicio de sesión exitoso!');
             this.router.navigate(['/homeAdmin']);
             // Swal.fire({
             //   icon: 'success',
@@ -56,6 +57,7 @@ export class LoginComponent {
             //   showConfirmButton: true
             // });
           } else if (user.id_rol === 2) {
+            console.log('¡Inicio de sesión exitoso!');
             this.router.navigate(['/home']);
             // Swal.fire({
             //   icon: 'success',

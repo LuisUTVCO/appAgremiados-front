@@ -17,7 +17,7 @@ export class AgremiadoService {
     return this.http.post<any>(`${this.url}/agregarAgremiado`, NuevoAgremiado);
   }
 
-  getAagremido(): Observable<any>{
+  getAgremiado(): Observable<any>{
     return this.http.get<any>(this.url+'/obtenerAgremiados');
   }
   

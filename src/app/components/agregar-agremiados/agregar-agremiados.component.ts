@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AgremiadoService } from 'src/app/services/agremiado.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class AgregarAgremiadosComponent implements OnInit {
 
   formAgremiado: FormGroup;
 
-  constructor(private serviceAgremiado: AgremiadoService, private fb: FormBuilder) {
+  constructor(private serviceAgremiado: AgremiadoService, private fb: FormBuilder, private router: Router) {
 
     this.formAgremiado = this.fb.group({
       a_paterno: ['', Validators.required],
@@ -37,6 +38,7 @@ export class AgregarAgremiadosComponent implements OnInit {
     this.serviceAgremiado.agregarAgremiado(infoNewAgremiado).subscribe(
       response => {
         console.log('Agremiado agregado correctamente', response);
+        this.router.navigate(['/homeAdmin']);
       },
       error => {
         console.error('Error al agregar agremiado', error);

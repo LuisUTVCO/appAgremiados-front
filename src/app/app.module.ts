@@ -23,6 +23,9 @@ import { FormatosComponent } from './pages/formatos/formatos.component';
 import { ConvocatoriasComponent } from './pages/convocatorias/convocatorias.component';
 import { ConveniosComponent } from './pages/convenios/convenios.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginService } from './services/login.service';
+import { AgregarSolicitudesComponent } from './components/agregar-solicitudes/agregar-solicitudes.component';
 
 
 @NgModule({
@@ -37,6 +40,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EditarAgremiadosComponent,
     VerAgremiadosComponent,
     VerSolicitudesComponent,
+    AgregarSolicitudesComponent,
 
     // Carpeta Pages
     FormatosComponent,
@@ -45,11 +49,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
     // Carpeta Shared
     InicioComponent,
+    HomeComponent,
     PaginaErrorComponent,
-    
+
   ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicModule, CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, LoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

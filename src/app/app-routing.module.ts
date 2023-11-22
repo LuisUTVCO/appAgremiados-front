@@ -5,16 +5,17 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 
-// CRUD de agremiados
+// CRUD de Administrador
 import { VerAgremiadosComponent } from './components/ver-agremiados/ver-agremiados.component';
 import { AgregarAgremiadosComponent } from './components/agregar-agremiados/agregar-agremiados.component';
-import { VerSolicitudesComponent } from './components/ver-solicitudes/ver-solicitudes.component';
+import { AgregarSolicitudesComponent } from './components/agregar-solicitudes/agregar-solicitudes.component';
 
 // Pagina principal por usuario
 import { InicioComponent } from './shared/inicio/inicio.component';
 import { HomeComponent } from './pages/home/home.component';
 
-// Componentes externos
+// Componentes de Agremiados y usuarios externos
+import { VerSolicitudesComponent } from './components/ver-solicitudes/ver-solicitudes.component';
 import { FormatosComponent } from './pages/formatos/formatos.component';
 import { ConvocatoriasComponent } from './pages/convocatorias/convocatorias.component';
 import { ConveniosComponent } from './pages/convenios/convenios.component';
@@ -52,8 +53,12 @@ const routes: Routes = [
     component: VerAgremiadosComponent, canActivate: [AuthGuardAdministrador]
   },
   {
+    path: 'agregarSolicitud',
+    component: AgregarSolicitudesComponent, canActivate: [AuthGuardAdministrador]
+  },
+  {
     path: 'Solicitudes',
-    component: VerSolicitudesComponent, canActivate: [AuthGuardAdministrador]
+    component: VerSolicitudesComponent, canActivate: [AuthGuardAgremiado]
   },
   {
     path: 'Formatos',
