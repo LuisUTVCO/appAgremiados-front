@@ -41,6 +41,7 @@ export class VerAgremiadosComponent implements OnInit {
     this.serviceAgremiado.getAgremiado().subscribe(
       (data) => {
         this.agremiados = data; // Asigna los datos recibidos al arreglo agremiados
+        this.agremiados.reverse();
       },
       (error) => {
         console.error('Error al obtener agremiados:', error);
@@ -50,6 +51,7 @@ export class VerAgremiadosComponent implements OnInit {
 
   ngAfterViewInit() {
     this.verAgremiados();
+    
     // Llama a generarPDF después de que la vista se haya inicializado
     this.generarPDF();
   }
@@ -57,7 +59,7 @@ export class VerAgremiadosComponent implements OnInit {
   generarPDF() {
     if (this.content && this.content.nativeElement) {
       const content: HTMLElement = this.content.nativeElement;
-      console.log('Elemento content:', this.content.nativeElement); 
+      console.log('Elemento content:', this.content.nativeElement);
 
       html2canvas(content).then((canvas) => {
         // Verifica que el canvas tenga contenido antes de continuar
@@ -70,7 +72,7 @@ export class VerAgremiadosComponent implements OnInit {
           const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
           pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-          pdf.save('Listado de agremaidos.pdf');
+          pdf.save('Listado de agremiados.pdf');
           console.log('Descargando pdf...');
 
         } else {

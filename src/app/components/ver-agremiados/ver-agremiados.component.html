@@ -27,46 +27,54 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<br>
-<div #content>
-    <ion-grid>
-        <ion-row>
-            <ion-col style="background-color: #3498db;"><strong>Apellido Paterno</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>Apellido Materno</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>Nombre(s)</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>Sexo</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>NUP</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>NUE</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>RFC</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>NSS</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>Fecha de Nacimiento</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>Teléfono</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>Cuota</strong></ion-col>
-            <ion-col style="background-color: #3498db;"><strong>Acciones</strong></ion-col>
-        </ion-row>
-        <ion-row *ngFor="let agre of agremiados">
-            <ion-col color-text="dark">{{agre.a_paterno}}</ion-col>
-            <ion-col>{{agre.a_materno}}</ion-col>
-            <ion-col>{{agre.nombre}}</ion-col>
-            <ion-col>{{agre.sexo}}</ion-col>
-            <ion-col>{{agre.NUP}}</ion-col>
-            <ion-col>{{agre.NUE}}</ion-col>
-            <ion-col>{{agre.RFC}}</ion-col>
-            <ion-col>{{agre.NSS}}</ion-col>
-            <ion-col>{{agre.fecha_nacimiento}}</ion-col>
-            <ion-col>{{agre.telefono}}</ion-col>
-            <ion-col>{{agre.cuota}}</ion-col>
-            <ion-col>
-                <ion-button href="/home" shape="round" style="background-color: #04558a; border-radius: 25px">
-                    <ion-icon name="open"></ion-icon>
-                </ion-button>
-                <ion-button shape="round" style="background-color: rgb(138, 4, 4), 40, 4; border-radius: 25px">
-                    <ion-icon name="trash"></ion-icon>
-                </ion-button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-</div>
+<ion-content>
+    <div #content>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th><strong>Apellido Paterno</strong></th>
+                        <th><strong>Apellido Materno</strong></th>
+                        <th><strong>Nombre(s)</strong></th>
+                        <th><strong>Sexo</strong></th>
+                        <th><strong>NUP</strong></th>
+                        <th><strong>NUE</strong></th>
+                        <th><strong>RFC</strong></th>
+                        <th><strong>NSS</strong></th>
+                        <th><strong>Fecha de Nacimiento</strong></th>
+                        <th><strong>Teléfono</strong></th>
+                        <th><strong>Cuota</strong></th>
+                        <th><strong>Acciones</strong></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let agre of agremiados">
+                    <!-- Los datos se llenarán dinámicamente aquí -->
+                    <tr>
+                        <td>{{agre.a_paterno}}</td>
+                        <td>{{agre.a_materno}}</td>
+                        <td>{{agre.nombre}}</td>
+                        <td>{{agre.sexo}}</td>
+                        <td>{{agre.NUP}}</td>
+                        <td>{{agre.NUE}}</td>
+                        <td>{{agre.RFC}}</td>
+                        <td>{{agre.NSS}}</td>
+                        <td>{{agre.fecha_nacimiento}}</td>
+                        <td>{{agre.telefono}}</td>
+                        <td>{{agre.cuota}}</td>
+                        <td>
+                            <ion-button href="/home" shape="round" style="background-color: #04558a; border-radius: 25px">
+                                <ion-icon name="open"></ion-icon>
+                            </ion-button>
+                            <ion-button shape="round" style="background-color: rgb(138, 4, 4), 40, 4; border-radius: 25px">
+                                <ion-icon name="trash"></ion-icon>
+                            </ion-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</ion-content>
 
 <!-- <ion-header [translucent]="true">
     <ion-toolbar>
@@ -127,4 +135,3 @@
       </ion-row>
   </ion-grid>
   </ion-content> -->
-  

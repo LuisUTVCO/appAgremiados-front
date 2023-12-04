@@ -1,8 +1,7 @@
-<div class="card">
+<!-- <div class="card">
   <div class="card-body">
     <h5 class="card-title">Agregar Agremiado</h5>
     <form [formGroup]="formAgremiado" (ngSubmit)="newAgremiado()">
-      <!-- Campos del formulario -->
       <div class="form-group">
         <label for="a_paterno">Apellido Paterno:</label>
         <input type="text" class="form-control" id="a_paterno" formControlName="a_paterno">
@@ -68,6 +67,114 @@
       <button type="submit" class="btn btn-primary" [disabled]="formAgremiado.invalid">Agregar</button>
     </form>
   </div>
-</div>
+</div> -->
 
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="homeAdmin"></ion-back-button>
+    </ion-buttons>
+    <ion-title align="center">
+      <h3>
+        <strong>
+          Agregar Agremiado
+        </strong>
+      </h3>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content>
+  <ion-grid fixed><br>
+    <form [formGroup]="formAgremiado" (ngSubmit)="newAgremiado()">
+      <ion-row>
+        <ion-grid [fixed]="true">
+          <ion-row>
+            <ion-col>
+              <ion-label><strong>Nombre(s):</strong></ion-label>
+              <ion-input type="text" id="nombre" formControlName="nombre" fill="outline"
+                placeholder="Ingresa tus nombre(s)" minlength="1" maxlength="15"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-label><strong>Apellido paterno:</strong></ion-label>
+              <ion-input type="text" formControlName="a_paterno" fill="outline" placeholder="Ingresa apellido paterno"
+                id="a_paterno" minlength="1" maxlength="15"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-label><strong>Apellido materno:</strong></ion-label>
+              <ion-input type="text" formControlName="a_materno" fill="outline" placeholder="Ingresa apellido materno"
+                id="a_materno" minlength="1" maxlength="15"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-label><strong>Sexo:</strong></ion-label>
+          <ion-select formControlName="sexo" id="sexo" fill="outline" placeholder="Seleccione el sexo">
+            <ion-select-option value="Hombre">Masculino</ion-select-option>
+            <ion-select-option value="Mujer">Femenino</ion-select-option>
+            <ion-select-option value="No_especificado">Prefiero no decirlo</ion-select-option>
+          </ion-select>
+
+        </ion-col>
+        <ion-col size="6">
+          <ion-label><strong>NUP:</strong></ion-label>
+          <ion-input formControlName="NUP" type="text" id="NUP" fill="outline" placeholder="Ingrese su NUP" minlength="1" maxlength="10"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-label><strong>NUE:</strong></ion-label>
+          <ion-input formControlName="NUE" type="text" id="NUE" fill="outline" placeholder="Ingrese su Número Único de Empleado" minlength="1" maxlength="10"></ion-input>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label><strong>RFC:</strong></ion-label>
+          <ion-input formControlName="RFC" type="text" id="RFC" fill="outline" placeholder="RFC" minlength="1" maxlength="13"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-label><strong>NSS:</strong></ion-label>
+          <ion-input formControlName="NSS" id="NSS" type="text" fill="outline"
+            placeholder="Numero de seguro social" minlength="1" maxlength="11"></ion-input>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label><strong>Fecha de nacimiento:</strong></ion-label>
+          <ion-input formControlName="fecha_nacimiento" type="date" id="fecha_nacimiento" fill="outline"
+            placeholder="fecha de nacimiento"></ion-input>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-label><strong>Teléfono:</strong></ion-label>
+          <ion-input formControlName="telefono" id="telefono" type="number" fill="outline"
+            placeholder="numero telefonico" minlength="1" maxlength="10"></ion-input>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-label><strong>Cuota:</strong></ion-label>
+          <ion-select formControlName="cuota" id="cuota" fill="outline" placeholder="Selecciona una opción">
+            <ion-select-option value="1">
+              Sí
+            </ion-select-option>
+            <ion-select-option value="2">
+              No
+            </ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row><br>
+
+      <ion-button type="submit" expand="block" shape="round" [disabled]="formAgremiado.invalid">
+        Guardar
+      </ion-button>
+
+    </form>
+  </ion-grid>
+
+</ion-content>

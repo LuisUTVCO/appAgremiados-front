@@ -54,11 +54,11 @@ const routes: Routes = [
   },
   {
     path: 'agregarSolicitud',
-    component: AgregarSolicitudesComponent, canActivate: [AuthGuardAdministrador]
+    component: AgregarSolicitudesComponent, canActivate: [AuthGuardAgremiado]
   },
   {
     path: 'Solicitudes',
-    component: VerSolicitudesComponent, canActivate: [AuthGuardAgremiado]
+    component: VerSolicitudesComponent, canActivate: [AuthGuardAdministrador]
   },
   {
     path: 'Formatos',

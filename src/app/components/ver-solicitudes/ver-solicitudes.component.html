@@ -1,3 +1,65 @@
-<p>
-  ver-solicitudes works!
-</p>
+<div class="container mt-3">
+  <div class="container mt-3">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="homeAdmin"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+          <h3>
+            <strong>
+              Solicitudes en espera
+            </strong>
+          </h3>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <div class="form-group">
+              <input type="date" class="form-control" id="fechaInicio" [(ngModel)]="fechaInicio">
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <input type="date" class="form-control" id="fechaFin" [(ngModel)]="fechaFin">
+            </div>
+          </td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="filtrarSolicitudes()">Filtrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>NUE</th>
+          <th>Fecha</th>
+          <th>Descargar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Los datos se llenarán dinámicamente aquí -->
+        <tr *ngFor="let solicitud of solicitudes">
+          <td>{{ solicitud.NUE }}</td>
+          <td>{{ solicitud.created_at}}</td>
+          <td>
+            <a class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" [href]="solicitud.ruta_archivo"
+              download>
+              <ion-icon name="attach"></ion-icon>
+              Descargar
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
