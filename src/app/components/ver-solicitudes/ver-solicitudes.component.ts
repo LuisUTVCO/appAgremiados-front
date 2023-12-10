@@ -26,8 +26,6 @@ export class VerSolicitudesComponent {
         this.solicitudes = data; // Asigna los datos recibidos al arreglo agremiados
         console.log('Datos obtenidos:', this.solicitudes); // Muestra los datos en la consola
         this.solicitudOrginales = data;
-        this.solicitudes = data;
-        console.log('Datos obtenidos:', this.solicitudes);
       },
       (error) => {
         console.error('Error al obtener solicitud:', error);
@@ -57,5 +55,35 @@ export class VerSolicitudesComponent {
 
   }
 
+  descargarSolcitud(ruta_archivo: string) {
+    const partes = ruta_archivo.split('/');
+    const nombreArchivo = partes[partes.length - 1];
+
+    console.log('Ruta del archivo desde el services:', ruta_archivo);
+    
+    this.solic.dowlandArchivo(nombreArchivo).subscribe(
+      (response: any) => {
+        const blob = new Blob([response], { type: 'application/octet-stream' });
+
+        const downloadLink = document.createElement('a');
+        const url = window.URL.createObjectURL(blob);
+        downloadLink.href = url;
+        downloadLink.download = nombreArchivo;
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+
+        document.body.removeChild(downloadLink);
+        window.URL.revokeObjectURL(url);
+
+        console.log('El archivo ha sido descargado correctamente');
+
+      },
+      (error) => {
+        console.log('Error al descargar el archivo', error);
+
+      }
+    )
+  }
 
 }

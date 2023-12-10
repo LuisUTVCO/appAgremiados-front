@@ -19,15 +19,13 @@ export class AgregarSolicitudesComponent {
   constructor(
     private solicitudService: SolicitudService,
     private rou: Router,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private router: Router) {
     this.Form_solicitud = this.fb.group({
       NUE: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),]],
       ruta_archivo: ['', [Validators.required]]
     });
   }
-
-
-
 
   onFileSelected(event: any) {
     const archivoInput = event.target.files[0];
@@ -46,7 +44,8 @@ export class AgregarSolicitudesComponent {
       this.solicitudService.agregarSolicitud(formdata).subscribe(
         (response) => {
           // Puedes manejar la respuesta del servicio aquí
-          console.log('Agregado exitosamente');
+          console.log('Solicitud agregada exitosamente');
+          this.router.navigate(['/home']);
           // Reload the page after successful addition
           setTimeout(() => {
             location.reload();

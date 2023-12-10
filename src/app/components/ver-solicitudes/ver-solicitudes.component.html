@@ -50,13 +50,13 @@
         <!-- Los datos se llenarán dinámicamente aquí -->
         <tr *ngFor="let solicitud of solicitudes">
           <td>{{ solicitud.NUE }}</td>
-          <td>{{ solicitud.created_at}}</td>
+          <td>{{ solicitud.created_at | date }}</td>
           <td>
-            <a class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" [href]="solicitud.ruta_archivo"
-              download>
-              <ion-icon name="attach"></ion-icon>
+            <button class="btn btn-primary" target="_blank"
+              (click)="descargarSolcitud(solicitud.ruta_archivo)">
+              <!-- <ion-icon name="attach"></ion-icon> -->
               Descargar
-            </a>
+            </button>
           </td>
         </tr>
       </tbody>
