@@ -55,12 +55,10 @@ export class VerSolicitudesComponent {
 
   }
 
-  descargarSolcitud(ruta_archivo: string) {
+  descargarSolicitud(ruta_archivo: string) {
     const partes = ruta_archivo.split('/');
     const nombreArchivo = partes[partes.length - 1];
 
-    console.log('Ruta del archivo desde el services:', ruta_archivo);
-    
     this.solic.dowlandArchivo(nombreArchivo).subscribe(
       (response: any) => {
         const blob = new Blob([response], { type: 'application/octet-stream' });
@@ -75,15 +73,11 @@ export class VerSolicitudesComponent {
 
         document.body.removeChild(downloadLink);
         window.URL.revokeObjectURL(url);
-
-        console.log('El archivo ha sido descargado correctamente');
-
       },
       (error) => {
-        console.log('Error al descargar el archivo', error);
-
+        console.error('Error al descargar el archivo', error);
       }
-    )
+    );
   }
 
 }
