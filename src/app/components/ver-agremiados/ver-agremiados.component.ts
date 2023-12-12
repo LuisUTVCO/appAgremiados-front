@@ -2,21 +2,8 @@ import { AfterViewInit, Component, OnInit, ViewChild, ElementRef } from '@angula
 import { AgremiadoService } from 'src/app/services/agremiado.service';
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-
-interface agremiado {
-  id: number;
-  a_paterno: string;
-  a_materno: string;
-  nombre: string;
-  sexo: string;
-  NUP: string;
-  NUE: string;
-  RFC: string;
-  NSS: string;
-  fecha_nacimiento: Date,
-  telefono: string;
-  cuota: string;
-}
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ver-agremiados',
@@ -29,7 +16,7 @@ export class VerAgremiadosComponent implements OnInit {
 
   agremiados: any[] = []; // Ajusta el tipo de datos según la estructura de tus agremiados
 
-  constructor(private serviceAgremiado: AgremiadoService) {
+  constructor(private serviceAgremiado: AgremiadoService, private route: Router) {
     this.content = {} as ElementRef;
   }
 
@@ -51,9 +38,31 @@ export class VerAgremiadosComponent implements OnInit {
 
   ngAfterViewInit() {
     this.verAgremiados();
-    
+
     // Llama a generarPDF después de que la vista se haya inicializado
     this.generarPDF();
+  }
+
+  eliminarAgremiado(id: number) {
+
+    this.serviceAgremiado.eliminarAgremiado(id).subscribe(
+      (res: any) => {
+        console.log('Agremiado eliminado:', res);
+        // Recargar los datos después de la eliminación
+        this.verAgremiados();
+      },
+      (error) => {
+        console.error('Error al eliminar agremiado:', error);
+        // Puedes manejar el error aquí, por ejemplo, mostrando una alerta con SweetAlert
+        Swal.fire('Error', 'Error al eliminar el agremiado', 'error');
+      }
+    );
+  }
+
+
+  editaragremiado(id: number){
+    console.log('ID Agremiado:', id);
+    this.route.navigateByUrl(`editaragremiado/${id}`); 
   }
 
   generarPDF() {

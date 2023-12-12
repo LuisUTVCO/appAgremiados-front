@@ -24,6 +24,7 @@ import { ConveniosComponent } from './pages/convenios/convenios.component';
 import { PaginaErrorComponent } from './shared/pagina-error/pagina-error.component';
 import { AuthGuardAdministrador } from './guards/auth-administrador.guard';
 import { AuthGuardAgremiado } from './guards/auth-agremiado.guard';
+import { EditarAgremiadosComponent } from './components/editar-agremiados/editar-agremiados.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'verAgremiado',
     component: VerAgremiadosComponent, canActivate: [AuthGuardAdministrador]
+  },
+  {
+    path: 'editaragremiado/:id',
+    component: EditarAgremiadosComponent, canActivate: [AuthGuardAdministrador]
   },
   {
     path: 'agregarSolicitud',

@@ -62,10 +62,10 @@
                         <td>{{agre.telefono}}</td>
                         <td>{{agre.cuota}}</td>
                         <td>
-                            <ion-button href="/home" shape="round" style="background-color: #04558a; border-radius: 25px">
+                            <ion-button (click)="editaragremiado(agre.id)" shape="round" style="background-color: #04558a; border-radius: 25px">
                                 <ion-icon name="open"></ion-icon>
                             </ion-button>
-                            <ion-button shape="round" style="background-color: rgb(138, 4, 4), 40, 4; border-radius: 25px">
+                            <ion-button (click)="eliminarAgremiado(agre.id)" shape="round" style="background-color: rgb(138, 4, 4), 40, 4; border-radius: 25px">
                                 <ion-icon name="trash"></ion-icon>
                             </ion-button>
                         </td>

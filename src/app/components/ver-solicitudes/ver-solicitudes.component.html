@@ -29,7 +29,7 @@
             </div>
           </td>
           <td>
-            <button type="button" class="btn btn-primary" (click)="filtrarSolicitudes()">Filtrar</button>
+            <ion-button type="button" class="btn btn-primary" (click)="filtrarSolicitudes()">Filtrar</ion-button>
           </td>
         </tr>
       </tbody>
@@ -52,11 +52,8 @@
           <td>{{ solicitud.NUE }}</td>
           <td>{{ solicitud.created_at | date }}</td>
           <td>
-            <button class="btn btn-primary" target="_blank"
-              (click)="descargarSolicitud(solicitud.ruta_archivo)">
-              <!-- <ion-icon name="attach"></ion-icon> -->
-              Descargar
-            </button>
+            <ion-button shape="round" title="Da click para descargar solicitud" (click)="descargarSolicitud(solicitud.ruta_archivo)"><ion-icon
+              name="attach"></ion-icon> Descargar</ion-button>
           </td>
         </tr>
       </tbody>
